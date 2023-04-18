@@ -14,6 +14,10 @@ describe("Valid anagram", () => {
         expect(result).toBe(true)
     })
 
-    // chin - inch
+    test("'rat' and 'car' should return false", () => {
+        const result = isAnagram('rat', 'car')
+
+        expect(result).toBe(false)
+    })
 
 })

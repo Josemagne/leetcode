@@ -8,24 +8,13 @@ export function isAnagram(s: string, t: string): boolean {
     // can't be anagrams
     if (wordLength1 !== wordLength2) return false;
 
-    const letterRepo: string[] = []
-
-    // Convert the word strings into letter arrays
-    const wordArray1 = s.split("")
-    const wordArray2 = s.split("")
-
+    const wordSorted1 = s.split("").sort()
+    const wordSorted2 = t.split("").sort();
 
     for (let i = 0; i < wordLength1; i++) {
-        const currentLetter = wordArray1[0]
-        const containsLetter = wordArray2.includes(currentLetter)
-        if (containsLetter) {
-            wordArray1.splice(0, 1)
-            // Index of the letter in the second array
-            const letterIndex = wordArray2.indexOf(currentLetter)
-            wordArray2.splice(letterIndex, 1)
+        if (wordSorted1[i] !== wordSorted2[i]) {
+            return false
         }
-
-        else return false
     }
 
     return true
