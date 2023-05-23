@@ -9,32 +9,30 @@
  *     }
  * }
  */
-
 import { ListNode } from "./data_structures/ListNode";
-import { Stack } from "./data_structures/Stack";
 
 export function reverseList(head: ListNode | null): ListNode | null {
 
     if (!head) return null
 
-    const reversedList = new ListNode()
+    let reversedList = new ListNode()
 
-    const arrayStack = []
+    const arrayStack = new Array<number>()
 
     let currentNode = head
 
+    // Fill array with the numbers of the linkedlist
     while (currentNode.next !== null) {
         arrayStack.push(currentNode.val)
         currentNode = currentNode.next
     }
 
     reversedList.val = arrayStack[0]
-    let currentNode2 = reversedList
 
-    for (let i = 1; i < arrayStack.length; i++) {
+    for (let i = arrayStack.length - 1; 1 < arrayStack.length; i--) {
         const element = arrayStack[i];
-        currentNode2.next = new ListNode(element)
-        currentNode2 = currentNode2.next
+        reversedList.next = new ListNode(element)
+        reversedList = reversedList.next
     }
 
     return reversedList

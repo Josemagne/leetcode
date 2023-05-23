@@ -27,7 +27,7 @@ interface ILinkedList {
 
 }
 
-export class LinkedLIst implements ILinkedList {
+export class LinkedList implements ILinkedList {
     head: ListNode
     constructor(head?: ListNode) {
         this.head = head === undefined ? this.head = new ListNode() : this.head = head;
